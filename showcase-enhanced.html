@@ -1,0 +1,1808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Immune System | Transform Wind Turbine Waste into Wildfire Defense</title>
+    <meta name="description" content="Revolutionary circular economy solution: Repurpose decommissioned wind turbine blades into an intelligent wildfire detection and suppression network.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Color System - Enhanced */
+            --forest: #1B4332;
+            --forest-light: #2D6A4F;
+            --forest-lighter: #40916C;
+            --ember: #FF6B35;
+            --flame: #FF9F1C;
+            --sky: #4ECDC4;
+            --glacier: #95E1D3;
+            --earth: #F7F3E9;
+            --carbon: #1A1A1D;
+            --white-glass: rgba(255, 255, 255, 0.1);
+            --white-glass-hover: rgba(255, 255, 255, 0.15);
+
+            /* Glassmorphism */
+            --glass-bg: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.18);
+            --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+            --blur-amount: 16px;
+
+            /* Spacing (8px grid) */
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --space-2xl: 48px;
+            --space-3xl: 64px;
+            --space-4xl: 96px;
+
+            /* Typography */
+            --font-display: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+            /* Enhanced Shadows */
+            --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+            --shadow-md: 0 4px 16px rgba(0,0,0,0.12);
+            --shadow-lg: 0 8px 32px rgba(0,0,0,0.16);
+            --shadow-xl: 0 20px 60px rgba(0,0,0,0.2);
+            --glow-sky: 0 0 20px rgba(78, 205, 196, 0.3);
+            --glow-ember: 0 0 20px rgba(255, 107, 53, 0.3);
+
+            /* Transitions */
+            --transition-fast: 150ms cubic-bezier(0.65, 0, 0.35, 1);
+            --transition-base: 300ms cubic-bezier(0.65, 0, 0.35, 1);
+            --transition-slow: 600ms cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-bounce: 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+        body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--carbon);
+            background:
+                linear-gradient(135deg, rgba(247, 243, 233, 0.7) 0%, rgba(232, 220, 197, 0.7) 100%),
+                url('https://images.unsplash.com/photo-1511497584788-876760111969?w=2400&q=80&auto=format&fit=crop') center/cover fixed;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Animated Background Pattern */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(78, 205, 196, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 107, 53, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 40% 20%, rgba(27, 67, 50, 0.08) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+            animation: breathe 20s ease-in-out infinite;
+        }
+
+        @keyframes breathe {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Navigation - Glassmorphism */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(247, 243, 233, 0.4);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+            transition: all var(--transition-base);
+        }
+
+        nav.scrolled {
+            background: rgba(247, 243, 233, 0.5);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--space-lg) var(--space-xl);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--forest);
+            display: flex;
+            align-items: center;
+            gap: var(--space-sm);
+            transition: transform var(--transition-base);
+            cursor: pointer;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: var(--space-xl);
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--forest);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            transition: all var(--transition-fast);
+            position: relative;
+            padding: var(--space-sm) 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--ember), var(--flame));
+            transition: width var(--transition-base);
+            border-radius: 2px;
+        }
+
+        .nav-links a:hover {
+            color: var(--ember);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .cta-button {
+            background: linear-gradient(135deg, var(--forest), var(--forest-light));
+            color: white;
+            padding: var(--space-md) var(--space-xl);
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            letter-spacing: 0.5px;
+            transition: all var(--transition-base);
+            box-shadow: 0 4px 12px rgba(27, 67, 50, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(27, 67, 50, 0.4);
+        }
+
+        /* Hero Section - Enhanced with Glassmorphism */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background:
+                linear-gradient(135deg, rgba(27, 67, 50, 0.85) 0%, rgba(45, 106, 79, 0.8) 100%),
+                url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=2400&q=80&auto=format&fit=crop') center/cover;
+            padding-top: 80px;
+        }
+
+        /* Additional Background Images for Sections */
+        #vision {
+            background:
+                linear-gradient(rgba(247, 243, 233, 0.3), rgba(247, 243, 233, 0.3)),
+                url('https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1600&q=80&auto=format&fit=crop') center/cover fixed;
+        }
+
+        #technology {
+            background:
+                linear-gradient(rgba(232, 220, 197, 0.4), rgba(232, 220, 197, 0.4)),
+                url('https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1600&q=80&auto=format&fit=crop') center/cover fixed;
+        }
+
+        /* Biomimicry Section Background */
+        #biomimicry {
+            background:
+                linear-gradient(rgba(247, 243, 233, 0.35), rgba(247, 243, 233, 0.35)),
+                url('https://images.unsplash.com/photo-1511497584788-876760111969?w=1600&q=80&auto=format&fit=crop') center/cover fixed;
+        }
+
+        /* Economics Section Background */
+        #economics {
+            background:
+                linear-gradient(rgba(232, 220, 197, 0.4), rgba(232, 220, 197, 0.4)),
+                url('https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=1600&q=80&auto=format&fit=crop') center/cover fixed;
+        }
+
+        /* Roadmap Section Background */
+        #roadmap {
+            background:
+                linear-gradient(rgba(247, 243, 233, 0.35), rgba(247, 243, 233, 0.35)),
+                url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1600&q=80&auto=format&fit=crop') center/cover fixed;
+        }
+
+        .crisis-card:first-child::after {
+            background:
+                radial-gradient(circle at top right, rgba(255, 107, 53, 0.05), transparent),
+                url('https://images.unsplash.com/photo-1532601224476-15c79f2f7a51?w=800&q=80&auto=format&fit=crop') center/cover;
+            opacity: 0.15;
+            background-size: cover;
+        }
+
+        .crisis-card:last-child::after {
+            background:
+                radial-gradient(circle at top right, rgba(255, 107, 53, 0.05), transparent),
+                url('https://images.unsplash.com/photo-1615092296061-e2ccfeb2f3d6?w=800&q=80&auto=format&fit=crop') center/cover;
+            opacity: 0.15;
+            background-size: cover;
+        }
+
+        /* Enhanced Particles */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            animation: float linear infinite;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0) scale(0);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+                transform: scale(1);
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) translateX(100px) scale(0);
+                opacity: 0;
+            }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            padding: var(--space-4xl) var(--space-xl);
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: clamp(48px, 8vw, 96px);
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffffff 0%, var(--glacier) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--space-lg);
+            letter-spacing: -2px;
+            line-height: 1.1;
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
+            animation: titleGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.3)); }
+            50% { filter: drop-shadow(0 0 40px rgba(255, 255, 255, 0.5)); }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(24px, 3vw, 40px);
+            color: var(--glacier);
+            font-weight: 600;
+            margin-bottom: var(--space-3xl);
+            letter-spacing: -0.5px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--space-xl);
+            margin-bottom: var(--space-3xl);
+        }
+
+        /* Glassmorphism Stat Cards */
+        .stat-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            padding: var(--space-xl);
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all var(--transition-slow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent, rgba(255, 255, 255, 0.1));
+            opacity: 0;
+            transition: opacity var(--transition-base);
+        }
+
+        .stat-card:hover::before {
+            opacity: 1;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-12px) scale(1.02);
+            background: rgba(255, 255, 255, 0.12);
+            border-color: var(--sky);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(78, 205, 196, 0.5);
+        }
+
+        .stat-number {
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--flame);
+            font-family: var(--font-mono);
+            margin-bottom: var(--space-sm);
+            text-shadow: 0 0 20px rgba(255, 159, 28, 0.5);
+            transition: all var(--transition-base);
+        }
+
+        .stat-card:hover .stat-number {
+            transform: scale(1.1);
+            text-shadow: 0 0 30px rgba(255, 159, 28, 0.8);
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: var(--space-xl);
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 14px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--space-sm);
+            animation: bounce 2s infinite;
+            opacity: 0.8;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* Section Containers */
+        section {
+            padding: var(--space-4xl) var(--space-xl);
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-title {
+            font-size: clamp(36px, 5vw, 64px);
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--forest) 0%, var(--forest-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: var(--space-lg);
+            letter-spacing: -1px;
+            text-align: center;
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            color: var(--forest-light);
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto var(--space-3xl);
+            line-height: 1.8;
+        }
+
+        /* Enhanced Crisis Section - Glassmorphism */
+        .crisis-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-xl);
+            margin-bottom: var(--space-3xl);
+        }
+
+        .crisis-card {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            padding: var(--space-3xl);
+            border-radius: 32px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all var(--transition-slow);
+        }
+
+        .crisis-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, var(--ember), var(--flame));
+        }
+
+        .crisis-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at top right, rgba(255, 107, 53, 0.05), transparent);
+            opacity: 0;
+            transition: opacity var(--transition-base);
+        }
+
+        .crisis-card:hover::after {
+            opacity: 1;
+        }
+
+        .crisis-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border-color: var(--ember);
+        }
+
+        .crisis-icon {
+            font-size: 72px;
+            margin-bottom: var(--space-lg);
+            display: inline-block;
+            transition: transform var(--transition-bounce);
+        }
+
+        .crisis-card:hover .crisis-icon {
+            transform: scale(1.2) rotate(5deg);
+        }
+
+        .crisis-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--forest);
+            margin-bottom: var(--space-md);
+        }
+
+        .crisis-stat {
+            font-size: 56px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--ember), var(--flame));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: var(--font-mono);
+            margin-bottom: var(--space-lg);
+        }
+
+        .crisis-list {
+            list-style: none;
+            margin-top: var(--space-lg);
+        }
+
+        .crisis-list li {
+            padding: var(--space-md);
+            margin-bottom: var(--space-sm);
+            background: rgba(27, 67, 50, 0.05);
+            border-radius: 12px;
+            position: relative;
+            padding-left: var(--space-xl);
+            transition: all var(--transition-base);
+        }
+
+        .crisis-list li::before {
+            content: '→';
+            position: absolute;
+            left: var(--space-md);
+            color: var(--ember);
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .crisis-list li:hover {
+            background: rgba(27, 67, 50, 0.1);
+            transform: translateX(8px);
+        }
+
+        .solution-bridge {
+            text-align: center;
+            padding: var(--space-3xl);
+            background: linear-gradient(135deg, rgba(78, 205, 196, 0.4), rgba(149, 225, 211, 0.4));
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-radius: 32px;
+            color: var(--forest);
+            font-size: 32px;
+            font-weight: 700;
+            box-shadow: 0 20px 60px rgba(78, 205, 196, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: all var(--transition-base);
+            text-shadow: 0 2px 4px rgba(255, 255, 255, 0.5);
+        }
+
+        .solution-bridge:hover {
+            transform: scale(1.02);
+            box-shadow: 0 25px 70px rgba(78, 205, 196, 0.4);
+        }
+
+        /* Transformation Section - Enhanced */
+        .transformation-container {
+            background: rgba(78, 205, 196, 0.12);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            padding: var(--space-4xl);
+            border-radius: 40px;
+            margin-bottom: var(--space-3xl);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .transformation-visual {
+            text-align: center;
+            margin-bottom: var(--space-3xl);
+            font-size: 120px;
+            padding: var(--space-3xl);
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.1));
+        }
+
+        .transformation-arrow {
+            font-size: 72px;
+            color: var(--forest);
+            margin: 0 var(--space-xl);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-3xl);
+        }
+
+        /* Glassmorphism Feature Cards */
+        .feature-card {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            padding: var(--space-xl);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all var(--transition-slow);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(78, 205, 196, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity var(--transition-base);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--sky);
+            box-shadow: 0 20px 60px rgba(78, 205, 196, 0.2);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--sky), var(--glacier));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            margin-bottom: var(--space-md);
+            box-shadow: 0 8px 24px rgba(78, 205, 196, 0.3);
+            transition: all var(--transition-bounce);
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: rotate(10deg) scale(1.1);
+            box-shadow: 0 12px 32px rgba(78, 205, 196, 0.5);
+        }
+
+        .feature-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--forest);
+            margin-bottom: var(--space-sm);
+        }
+
+        .feature-description {
+            color: var(--forest-light);
+            line-height: 1.7;
+        }
+
+        .feature-metric {
+            font-family: var(--font-mono);
+            font-weight: 600;
+            color: var(--ember);
+            margin-top: var(--space-md);
+            font-size: 14px;
+            padding: var(--space-sm) var(--space-md);
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 8px;
+            display: inline-block;
+        }
+
+        /* Continue with remaining sections... */
+        /* For brevity, I'll include key glassmorphism enhancements */
+
+        /* Biomimicry Container */
+        .biomimicry-container {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            padding: var(--space-4xl);
+            border-radius: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: var(--space-xl);
+            align-items: center;
+            margin-top: var(--space-3xl);
+        }
+
+        .comparison-column {
+            padding: var(--space-xl);
+        }
+
+        .comparison-column h3 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--forest);
+            margin-bottom: var(--space-lg);
+            text-align: center;
+        }
+
+        .comparison-list {
+            list-style: none;
+        }
+
+        .comparison-list li {
+            padding: var(--space-md);
+            margin-bottom: var(--space-md);
+            background: rgba(78, 205, 196, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 12px;
+            font-size: 18px;
+            transition: all var(--transition-base);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .comparison-list li:hover {
+            transform: translateX(8px);
+            background: rgba(78, 205, 196, 0.15);
+            border-color: var(--sky);
+        }
+
+        .comparison-arrow {
+            font-size: 56px;
+            color: var(--sky);
+            filter: drop-shadow(0 0 10px rgba(78, 205, 196, 0.5));
+        }
+
+        .biomimicry-quote {
+            margin-top: var(--space-3xl);
+            padding: var(--space-xl);
+            background: linear-gradient(135deg, rgba(27, 67, 50, 0.5), rgba(45, 106, 79, 0.5));
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border-radius: 24px;
+            color: white;
+            font-size: 24px;
+            font-style: italic;
+            text-align: center;
+            font-weight: 500;
+            line-height: 1.6;
+            box-shadow: 0 20px 60px rgba(27, 67, 50, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Economics Section */
+        .economics-container {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            padding: var(--space-4xl);
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .cost-comparison {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            gap: var(--space-3xl);
+            margin: var(--space-3xl) 0;
+            padding: var(--space-3xl);
+        }
+
+        .cost-bar {
+            text-align: center;
+            position: relative;
+        }
+
+        .bar {
+            width: 140px;
+            background: linear-gradient(180deg, var(--sky), var(--glacier));
+            border-radius: 16px 16px 0 0;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: var(--space-lg);
+            box-shadow: 0 20px 60px rgba(78, 205, 196, 0.3);
+            transition: all var(--transition-slow);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .bar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(180deg, transparent, rgba(255, 255, 255, 0.2));
+            opacity: 0;
+            transition: opacity var(--transition-base);
+        }
+
+        .bar:hover::before {
+            opacity: 1;
+        }
+
+        .bar.small {
+            height: 120px;
+        }
+
+        .bar.large {
+            height: 550px;
+            background: linear-gradient(180deg, var(--ember), var(--flame));
+            box-shadow: 0 20px 60px rgba(255, 107, 53, 0.4);
+        }
+
+        .bar:hover {
+            transform: scale(1.08);
+        }
+
+        .bar-value {
+            font-size: 32px;
+            font-weight: 800;
+            color: white;
+            font-family: var(--font-mono);
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .bar-label {
+            margin-top: var(--space-md);
+            font-weight: 600;
+            color: var(--forest);
+            font-size: 16px;
+        }
+
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: var(--space-xl);
+            margin-top: var(--space-3xl);
+        }
+
+        .impact-card {
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            padding: var(--space-xl);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: all var(--transition-slow);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .impact-card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            border-color: var(--sky);
+        }
+
+        .impact-icon {
+            font-size: 64px;
+            margin-bottom: var(--space-md);
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
+            transition: transform var(--transition-bounce);
+        }
+
+        .impact-card:hover .impact-icon {
+            transform: scale(1.15) rotate(-5deg);
+        }
+
+        .impact-title {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--forest);
+            margin-bottom: var(--space-md);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .impact-value {
+            font-size: 48px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--ember), var(--flame));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: var(--font-mono);
+            margin-bottom: var(--space-sm);
+        }
+
+        .impact-description {
+            color: var(--forest-light);
+            font-size: 14px;
+        }
+
+        /* Roadmap - Glassmorphism Timeline */
+        .roadmap-container {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            padding: var(--space-4xl);
+            border-radius: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .timeline {
+            position: relative;
+            padding: var(--space-3xl) 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--forest), var(--sky));
+            border-radius: 2px;
+            box-shadow: 0 0 20px rgba(78, 205, 196, 0.5);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: var(--space-3xl);
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            width: 45%;
+            padding: var(--space-xl);
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border-radius: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: all var(--transition-slow);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .timeline-year {
+            font-size: 56px;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--ember), var(--flame));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-family: var(--font-mono);
+            margin-bottom: var(--space-sm);
+        }
+
+        .timeline-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--forest);
+            margin-bottom: var(--space-sm);
+        }
+
+        .timeline-description {
+            color: var(--forest-light);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 28px;
+            height: 28px;
+            background: var(--sky);
+            border: 5px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 6px rgba(78, 205, 196, 0.2), 0 0 20px rgba(78, 205, 196, 0.5);
+            transition: all var(--transition-base);
+        }
+
+        .timeline-item:hover .timeline-dot {
+            transform: translateX(-50%) scale(1.3);
+            box-shadow: 0 0 0 8px rgba(78, 205, 196, 0.3), 0 0 30px rgba(78, 205, 196, 0.7);
+        }
+
+        /* CTA Section - Premium Glassmorphism */
+        .cta-section {
+            background: linear-gradient(135deg, rgba(27, 67, 50, 0.6), rgba(45, 106, 79, 0.6));
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            padding: var(--space-4xl);
+            border-radius: 40px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 30px 80px rgba(27, 67, 50, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .cta-section h2 {
+            color: white;
+            margin-bottom: var(--space-xl);
+            filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.3));
+        }
+
+        .roles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: var(--space-xl);
+            margin: var(--space-3xl) 0;
+        }
+
+        .role-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            padding: var(--space-xl);
+            border-radius: 24px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all var(--transition-slow);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .role-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity var(--transition-base);
+        }
+
+        .role-card:hover::before {
+            opacity: 1;
+        }
+
+        .role-card:hover {
+            transform: translateY(-12px) scale(1.03);
+            background: rgba(255, 255, 255, 0.25);
+            border-color: var(--sky);
+            box-shadow: 0 20px 60px rgba(78, 205, 196, 0.3);
+        }
+
+        .role-icon {
+            font-size: 72px;
+            margin-bottom: var(--space-md);
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+            transition: transform var(--transition-bounce);
+        }
+
+        .role-card:hover .role-icon {
+            transform: scale(1.2) rotate(-10deg);
+        }
+
+        .role-title {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: var(--space-md);
+        }
+
+        .role-description {
+            font-size: 16px;
+            margin-bottom: var(--space-lg);
+            opacity: 0.95;
+            line-height: 1.6;
+        }
+
+        .role-button {
+            background: white;
+            color: var(--forest);
+            padding: var(--space-md) var(--space-xl);
+            border-radius: 12px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+            transition: all var(--transition-base);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .role-button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+            background: var(--glacier);
+        }
+
+        .email-form {
+            max-width: 600px;
+            margin: var(--space-3xl) auto 0;
+            display: flex;
+            gap: var(--space-md);
+        }
+
+        .email-input {
+            flex: 1;
+            padding: var(--space-md) var(--space-lg);
+            border-radius: 12px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            color: white;
+            font-size: 16px;
+            transition: all var(--transition-fast);
+        }
+
+        .email-input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .email-input:focus {
+            outline: none;
+            border-color: var(--sky);
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 0 0 4px rgba(78, 205, 196, 0.2);
+        }
+
+        .submit-button {
+            padding: var(--space-md) var(--space-xl);
+            background: linear-gradient(135deg, var(--ember), var(--flame));
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all var(--transition-base);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+        }
+
+        .submit-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(255, 107, 53, 0.6);
+        }
+
+        /* Footer - Enhanced */
+        footer {
+            background: linear-gradient(135deg, rgba(26, 26, 29, 0.7), rgba(27, 67, 50, 0.7));
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            color: white;
+            padding: var(--space-3xl) var(--space-xl);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--space-3xl);
+        }
+
+        .footer-section h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: var(--space-lg);
+            color: var(--glacier);
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: var(--space-md);
+        }
+
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all var(--transition-fast);
+            display: inline-block;
+        }
+
+        .footer-links a:hover {
+            color: var(--sky);
+            transform: translateX(5px);
+        }
+
+        .footer-bottom {
+            max-width: 1400px;
+            margin: var(--space-3xl) auto 0;
+            padding-top: var(--space-xl);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .crisis-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .comparison-arrow {
+                transform: rotate(90deg);
+            }
+
+            .timeline::before {
+                left: var(--space-lg);
+            }
+
+            .timeline-item {
+                flex-direction: column !important;
+                padding-left: var(--space-3xl);
+            }
+
+            .timeline-content {
+                width: 100%;
+            }
+
+            .timeline-dot {
+                left: var(--space-lg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .cost-comparison {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .bar.large {
+                height: 350px;
+            }
+        }
+
+        /* Refined Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp var(--transition-slow) ease-out;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--earth);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, var(--forest), var(--forest-light));
+            border-radius: 6px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, var(--forest-light), var(--sky));
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav id="nav">
+        <div class="nav-container">
+            <div class="logo">
+                🌲 IMMUNE SYSTEM
+            </div>
+            <ul class="nav-links">
+                <li><a href="#vision">Vision</a></li>
+                <li><a href="#technology">Technology</a></li>
+                <li><a href="#economics">Economics</a></li>
+                <li><a href="#roadmap">Roadmap</a></li>
+            </ul>
+            <a href="#cta" class="cta-button">Get Started</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="particles"></div>
+        <div class="hero-content fade-in-up">
+            <h1 class="hero-title">🌲 EARTH'S IMMUNE SYSTEM 🔥</h1>
+            <p class="hero-subtitle">Two Planetary Crises. One Solution.</p>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">43M</div>
+                    <div class="stat-label">Tons of Turbine Waste</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">$300B</div>
+                    <div class="stat-label">Annual Fire Damage</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">200M+</div>
+                    <div class="stat-label">Acres Burned Annually</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            <span>See The Solution</span>
+            <span style="font-size: 24px;">↓</span>
+        </div>
+    </section>
+
+    <!-- Dual Crisis Section -->
+    <section id="vision">
+        <h2 class="section-title">The Dual Crisis</h2>
+        <p class="section-subtitle">Two massive global problems. What if they could solve each other?</p>
+
+        <div class="crisis-grid">
+            <div class="crisis-card">
+                <div class="crisis-icon">🏭</div>
+                <h3 class="crisis-title">Problem A: Turbine Waste</h3>
+                <div class="crisis-stat">43M Tons</div>
+                <p>Wind turbine blades reaching end-of-life by 2050, with nowhere to go.</p>
+                <ul class="crisis-list">
+                    <li>Non-recyclable composite materials</li>
+                    <li>25-year lifespan per blade</li>
+                    <li>Landfills rejecting them</li>
+                    <li>Growing crisis as wind farms age</li>
+                </ul>
+            </div>
+
+            <div class="crisis-card">
+                <div class="crisis-icon">🔥</div>
+                <h3 class="crisis-title">Problem B: Wildfires</h3>
+                <div class="crisis-stat">89,000</div>
+                <p>Fires per year in the US alone, causing massive destruction.</p>
+                <ul class="crisis-list">
+                    <li>5-minute window for early detection</li>
+                    <li>Remote areas lack coverage</li>
+                    <li>Climate change worsening risk</li>
+                    <li>$18B+ annual US damage</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="solution-bridge">
+            ⚡ What if these problems solved each other? ⚡
+        </div>
+    </section>
+
+    <!-- Transformation Section -->
+    <section id="technology">
+        <h2 class="section-title">The Transformation</h2>
+        <p class="section-subtitle">From industrial waste to planetary defense system</p>
+
+        <div class="transformation-container">
+            <div class="transformation-visual">
+                🌬️ <span class="transformation-arrow">→</span> 🌲
+            </div>
+
+            <div style="text-align: center; margin-bottom: var(--space-3xl);">
+                <h3 style="font-size: 32px; font-weight: 700; color: var(--forest); margin-bottom: var(--space-md);">
+                    Turbine Blade → Sentinel Tower
+                </h3>
+                <p style="font-size: 20px; color: var(--forest-light);">
+                    Vertical installation transforms waste into intelligent wildfire detection infrastructure
+                </p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">👁️</div>
+                    <h4 class="feature-title">Detect</h4>
+                    <p class="feature-description">
+                        Multi-spectrum sensors (IR, thermal, smoke) monitor 500-acre radius continuously
+                    </p>
+                    <div class="feature-metric">Detection: <5 minutes from ignition</div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h4 class="feature-title">Analyze</h4>
+                    <p class="feature-description">
+                        Edge AI processes data locally, filtering false positives with 96.3% accuracy
+                    </p>
+                    <div class="feature-metric">Analysis: <1 minute processing time</div>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💧</div>
+                    <h4 class="feature-title">Respond</h4>
+                    <p class="feature-description">
+                        Autonomous water cannon system deploys 5,000L within 50-meter radius
+                    </p>
+                    <div class="feature-metric">Response: <2 minutes deployment</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Biomimicry Section -->
+    <section id="biomimicry">
+        <h2 class="section-title">Nature as Teacher</h2>
+        <p class="section-subtitle">Just like your body has an immune system, Earth can have one too</p>
+
+        <div class="biomimicry-container">
+            <div class="comparison-grid">
+                <div class="comparison-column">
+                    <h3>🧬 Biological Immune System</h3>
+                    <ul class="comparison-list">
+                        <li>White blood cells patrol constantly</li>
+                        <li>Rapid response to threats</li>
+                        <li>Distributed throughout body</li>
+                        <li>Self-healing and adaptive</li>
+                        <li>Regenerative by nature</li>
+                    </ul>
+                </div>
+
+                <div class="comparison-arrow">→</div>
+
+                <div class="comparison-column">
+                    <h3>🌲 Sentinel Tower Network</h3>
+                    <ul class="comparison-list">
+                        <li>Sensors monitor 24/7/365</li>
+                        <li><5 minute threat detection</li>
+                        <li>Mesh network across landscapes</li>
+                        <li>AI learns and improves</li>
+                        <li>Circular material reuse</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="biomimicry-quote">
+                "Just like your body detects and fights infections, Earth can have an immune system for wildfires."
+            </div>
+        </div>
+    </section>
+
+    <!-- Economics Section -->
+    <section id="economics">
+        <h2 class="section-title">The Business Case</h2>
+        <p class="section-subtitle">Prevention is 100x cheaper than damage recovery</p>
+
+        <div class="economics-container">
+            <div class="cost-comparison">
+                <div class="cost-bar">
+                    <div class="bar small">
+                        <div class="bar-value">$50K</div>
+                    </div>
+                    <div class="bar-label">Prevention Cost<br>(Per Tower)</div>
+                </div>
+
+                <div style="font-size: 48px; color: var(--ember); align-self: center;">vs</div>
+
+                <div class="cost-bar">
+                    <div class="bar large">
+                        <div class="bar-value">$5M+</div>
+                    </div>
+                    <div class="bar-label">Average Fire<br>Damage</div>
+                </div>
+            </div>
+
+            <div style="text-align: center; margin: var(--space-3xl) 0;">
+                <p style="font-size: 32px; font-weight: 700; color: var(--ember);">
+                    ROI: 100x in high-risk areas
+                </p>
+            </div>
+
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon">♻️</div>
+                    <div class="impact-title">Circular Economy</div>
+                    <div class="impact-value">43M</div>
+                    <div class="impact-description">Tons diverted from landfills</div>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-icon">🌍</div>
+                    <div class="impact-title">Carbon Reduction</div>
+                    <div class="impact-value">2M</div>
+                    <div class="impact-description">Tons CO₂ saved annually</div>
+                </div>
+
+                <div class="impact-card">
+                    <div class="impact-icon">💼</div>
+                    <div class="impact-title">Jobs Created</div>
+                    <div class="impact-value">15,000</div>
+                    <div class="impact-description">Green jobs in deployment</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section id="roadmap">
+        <h2 class="section-title">From Prototype to Planet</h2>
+        <p class="section-subtitle">A concrete path from vision to reality</p>
+
+        <div class="roadmap-container">
+            <!-- Hero Image Showcase -->
+            <div style="margin: var(--space-3xl) 0; text-align: center;">
+                <div style="position: relative; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);">
+                    <img src="data:image/jpeg;base64,{{IMAGE_PLACEHOLDER}}"
+                         alt="Sentinel Tower - Vertical Turbine Blade Fire Detection System"
+                         style="width: 100%; height: auto; display: block; border-radius: 24px;"
+                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                    <div style="display: none; padding: var(--space-3xl); background: rgba(27, 67, 50, 0.1); border-radius: 24px;">
+                        <p style="font-size: 18px; color: var(--forest); margin-bottom: var(--space-md);">
+                            📸 <strong>Sentinel Tower Visualization</strong>
+                        </p>
+                        <p style="color: var(--forest-light);">
+                            A 50-meter repurposed wind turbine blade standing vertically as a wildfire detection and suppression tower, featuring integrated sensors, drone docking station, and water reservoir system.
+                        </p>
+                    </div>
+                </div>
+                <p style="margin-top: var(--space-lg); font-size: 14px; color: var(--forest-light); font-style: italic;">
+                    Sentinel Tower: Where waste becomes infrastructure, and prevention meets innovation
+                </p>
+            </div>
+
+            <!-- Deployment Roadmap Cards -->
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--space-xl); margin-top: var(--space-3xl);">
+                <div style="background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(25px); padding: var(--space-xl); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.5); transition: all 0.3s;">
+                    <div style="font-size: 48px; font-weight: 800; color: var(--ember); font-family: var(--font-mono); margin-bottom: var(--space-sm);">2024</div>
+                    <div style="font-size: 20px; font-weight: 700; color: var(--forest); margin-bottom: var(--space-sm);">Proof of Concept</div>
+                    <p style="color: var(--forest-light); font-size: 14px;">First prototype deployed in high-risk California region. Sensor validation and AI training.</p>
+                </div>
+
+                <div style="background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(25px); padding: var(--space-xl); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.5); transition: all 0.3s;">
+                    <div style="font-size: 48px; font-weight: 800; color: var(--ember); font-family: var(--font-mono); margin-bottom: var(--space-sm);">2025</div>
+                    <div style="font-size: 20px; font-weight: 700; color: var(--forest); margin-bottom: var(--space-sm);">First 100 Towers</div>
+                    <p style="color: var(--forest-light); font-size: 14px;">$5M funding round. Deploy across California, Australia, and Greece.</p>
+                </div>
+
+                <div style="background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(25px); padding: var(--space-xl); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.5); transition: all 0.3s;">
+                    <div style="font-size: 48px; font-weight: 800; color: var(--ember); font-family: var(--font-mono); margin-bottom: var(--space-sm);">2026</div>
+                    <div style="font-size: 20px; font-weight: 700; color: var(--forest); margin-bottom: var(--space-sm);">1,000 Tower Network</div>
+                    <p style="color: var(--forest-light); font-size: 14px;">Mediterranean coverage. Government partnerships.</p>
+                </div>
+
+                <div style="background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(25px); padding: var(--space-xl); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.5); transition: all 0.3s;">
+                    <div style="font-size: 48px; font-weight: 800; color: var(--ember); font-family: var(--font-mono); margin-bottom: var(--space-sm);">2027</div>
+                    <div style="font-size: 20px; font-weight: 700; color: var(--forest); margin-bottom: var(--space-sm);">10K Global Network</div>
+                    <p style="color: var(--forest-light); font-size: 14px;">Western US and Southern Europe fully covered.</p>
+                </div>
+
+                <div style="background: rgba(255, 255, 255, 0.3); backdrop-filter: blur(25px); padding: var(--space-xl); border-radius: 20px; border: 1px solid rgba(255, 255, 255, 0.5); transition: all 0.3s;">
+                    <div style="font-size: 48px; font-weight: 800; color: var(--ember); font-family: var(--font-mono); margin-bottom: var(--space-sm);">2030</div>
+                    <div style="font-size: 20px; font-weight: 700; color: var(--forest); margin-bottom: var(--space-sm);">100K Planetary Defense</div>
+                    <p style="color: var(--forest-light); font-size: 14px;">Global coverage. Wildfires detected before they spread.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta">
+        <div class="cta-section">
+            <h2>Join The Movement</h2>
+            <p style="font-size: 20px; margin-bottom: var(--space-xl); opacity: 0.95;">
+                Choose your role in building Earth's immune system
+            </p>
+
+            <div class="roles-grid">
+                <div class="role-card">
+                    <div class="role-icon">🏛️</div>
+                    <div class="role-title">Government</div>
+                    <div class="role-description">
+                        Deploy in your region. Save lives. Reduce fire department costs.
+                    </div>
+                    <a href="#contact" class="role-button">Request Pilot Program</a>
+                </div>
+
+                <div class="role-card">
+                    <div class="role-icon">💰</div>
+                    <div class="role-title">Investor</div>
+                    <div class="role-description">
+                        Fund the first 100 towers. 100x ROI potential in proven market.
+                    </div>
+                    <a href="#contact" class="role-button">Schedule Meeting</a>
+                </div>
+
+                <div class="role-card">
+                    <div class="role-icon">📢</div>
+                    <div class="role-title">Advocate</div>
+                    <div class="role-description">
+                        Spread the word. Share the vision. Help this solution go viral.
+                    </div>
+                    <a href="#contact" class="role-button">Share Now</a>
+                </div>
+            </div>
+
+            <form class="email-form" onsubmit="return handleSubmit(event)">
+                <input
+                    type="email"
+                    class="email-input"
+                    placeholder="Enter your email for updates"
+                    required
+                />
+                <button type="submit" class="submit-button">Get Updates</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About</h3>
+                <ul class="footer-links">
+                    <li><a href="#vision">Our Vision</a></li>
+                    <li><a href="#team">Team</a></li>
+                    <li><a href="#research">Research</a></li>
+                    <li><a href="#press">Press Kit</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#docs">Technical Docs</a></li>
+                    <li><a href="#github">GitHub</a></li>
+                    <li><a href="#api">API Access</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Data Sources</h3>
+                <ul class="footer-links">
+                    <li><a href="#">NIFC Wildfire Statistics</a></li>
+                    <li><a href="#">Global Wind Energy Council</a></li>
+                    <li><a href="#">NASA FIRMS Active Fire Data</a></li>
+                    <li><a href="#">NOAA Climate Data</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Connect</h3>
+                <ul class="footer-links">
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#twitter">Twitter / X</a></li>
+                    <li><a href="#linkedin">LinkedIn</a></li>
+                    <li><a href="#newsletter">Newsletter</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© 2025 Immune System Project. All rights reserved.</p>
+            <p style="margin-top: var(--space-md);">
+                Built with purpose. Powered by circular economy principles. Protected by Earth's immune system.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Enhanced particle animation
+        function createParticles() {
+            const particlesContainer = document.querySelector('.particles');
+            const particleCount = 60;
+
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
+                particle.style.animationDelay = Math.random() * 5 + 's';
+                particle.style.opacity = Math.random() * 0.5 + 0.3;
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Navigation scroll effect with smooth transition
+        function handleNavScroll() {
+            const nav = document.getElementById('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        }
+
+        // Form submission
+        function handleSubmit(event) {
+            event.preventDefault();
+            const email = event.target.querySelector('input').value;
+            alert(`🌲 Thank you for joining Earth's Immune System! We'll send updates to ${email}`);
+            event.target.reset();
+            return false;
+        }
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Initialize
+        window.addEventListener('load', () => {
+            createParticles();
+
+            // Observe sections for animation
+            document.querySelectorAll('section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(section);
+            });
+        });
+
+        window.addEventListener('scroll', handleNavScroll);
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
