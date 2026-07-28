@@ -12,3 +12,7 @@
 - `NOTICE.md` — `a2bd463085f80129df43b7884ebd6062c8da370cb0006dd33026928e56522630`
 
 Author of record: **Yassine Drani / NUMEN Labs LLC**. See NOTICE.md for attribution requirements.
+
+### Addendum 2026-07-28 (same day)
+
+- `docs/DATA_DOSSIER.md` — fact-checked industrial dossier (global waste scale, fire economics, blade engineering data, method blueprint) — `06a4cb0a2279eb8792af12ed9099518f26f4add2a8887bf16b2064e757187db6`
