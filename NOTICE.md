@@ -21,3 +21,5 @@ The names and brands **"Earth's Immune System"**, **"Raise the Blades"**, **"Sen
 ## Defensive publication
 
 This repository intentionally functions as a **defensive publication**: the disclosures herein constitute prior art as of their commit dates, precluding third parties from patenting the disclosed method or obvious variants of it. The forests do not care who owns the antibody — but the record will always show who raised it first.
+
+Full licensing architecture: see [LICENSE.md](LICENSE.md) (docs CC BY-SA 4.0 · code AGPL-3.0 · brands reserved) and [TRADEMARKS.md](TRADEMARKS.md).
